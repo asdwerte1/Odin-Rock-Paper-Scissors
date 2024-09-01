@@ -4,6 +4,7 @@
 <ul>
   <li>Variables</li>
   <li>Operators</li>
+  <li>Conditionals</li>
   <li>Functions</li>
 </ul>
 <p>as these are all that is covered up to this point in the course - I may then work in further aspects down the line.</p>
