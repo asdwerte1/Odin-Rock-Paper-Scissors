@@ -11,3 +11,4 @@
 <h2>Refelection</h2>
 <p>The solution for this is definitly not optimal, but does generally follow the instructions and guide</p>
 <p>I may return to this in the future and improve further (time dependent and if I remember!)</p>
+<p>Further update - following an addtional guide on the Odin Project the game now has a (very basic) UI - again I may come round to applying furhther updates to this in the future.</p>
