@@ -1,31 +1,29 @@
-function getComputerChoice() {
+addEventListener("DOMContentLoaded", () => {
 
-    const choice = 3 * Math.random();
+    const computerScore = document.getElementById("computer-score");
+    const playerScore = document.getElementById("player-score");
+    computerScore.innerHTML = 0;
+    playerScore.innerHTML = 0;
 
-    if (choice < 1) {
-        return "rock";
-    } else if (choice < 2) {
-        return "paper";
-    } else {
-        return "scissors";
-    }
-}
+    document.getElementById("rock").addEventListener("click", () => {
+        playRound("rock", getComputerChoice());
+        checkForWinner();
+    });
+    document.getElementById("paper").addEventListener("click", () => {
+        playRound("paper", getComputerChoice());
+        checkForWinner();
+    });
+    document.getElementById("scissors").addEventListener("click", () => {
+        playRound("scissors", getComputerChoice());
+        checkForWinner();
+    });
 
-function getHumanChoice() {
-    const choice = prompt("Rock, paper, scissors?").toLowerCase();
-    return choice;
-}
-
-function playGame() {
-
-    let humanScore = 0;
-    let computerScore = 0;
-
-
-    // Why do the instructions say to do this?!?
     function playRound(playerMove, computerMove) {
 
         let winner = "";
+
+        document.getElementById("computer-move").innerHTML = computerMove;
+        document.getElementById("player-move").innerHTML = playerMove;
 
         // This is an attrocious piece of code
         // But I am limiting myself to only content covered so far
@@ -50,27 +48,46 @@ function playGame() {
                     winner = "player";
                 }
             }
+            document.getElementById("winner").innerHTML = winner
             if (winner == "player") {
-                humanScore++;
+                playerScore.innerHTML++;
             } else {
-                computerScore++;
+                computerScore.innerHTML++;
             }
-            console.log(`Compuer move: ${computerMove}\nPlayer move: ${playerMove}\nWinner: ${winner}`);
-        } else {
-            console.log("It is a tie!");
         }
-
     }
 
-    // Using a loop against my own rules because
-    for (let i = 0; i < 5; i++) {
+    function getComputerChoice() {
 
-        const computerMove = getComputerChoice();
-        const playerMove = getHumanChoice();
-        playRound(playerMove, computerMove);
+        const choice = 3 * Math.random();
+
+        if (choice < 1) {
+            return "rock";
+        } else if (choice < 2) {
+            return "paper";
+        } else {
+            return "scissors";
+        }
     }
 
-    console.log(`Player final score: ${humanScore}\nCompuer final score: ${computerScore}`);
-}
+    function checkForWinner() {
+        const ps = playerScore.innerHTML >= 5 ? true : false;
+        const cs = computerScore.innerHTML >= 5 ? true : false;
+        if (!ps && !cs) {
+            return;
+        } else {
+            return playerScore ? playerWins() : computerWins();
+        }
+    }
 
-playGame();
+    function playerWins() {
+        alert("Player wins!");
+        playerScore.innerHTML = 0;
+        computerScore.innerHTML = 0;
+    }
+    function computerWins() {
+        alert("Computer wins!");
+        playerScore.innerHTML = 0;
+        computerScore.innerHTML = 0;
+    }
+});

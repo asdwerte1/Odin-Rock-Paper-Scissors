@@ -1,0 +1,35 @@
+#playArea {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    padding: 20px 40px;
+    border: solid thin transparent;
+    border-radius: 15px;
+    background-color: lightskyblue;
+    color: aliceblue;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+#results {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+#results-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#scores {
+    display: flex;
+    flex-direction: column;
+}
